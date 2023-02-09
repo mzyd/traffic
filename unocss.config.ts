@@ -11,7 +11,11 @@ export default defineConfig({
     presetUno()
   ],
   /** 自定义规则 */
-  rules: [["uno-padding-20", { padding: "20px" }]],
+  rules: [
+    ["uno-padding-20", { padding: "20px" }],
+    // [/^m-(\d+)$/, ([, d]) => ({ margin: `${d / 4}rem` })],
+    // [/^p-(\d+)$/, match => ({ padding: `${match[1] / 4}rem` })],
+  ],
   /** 自定义快捷方式 */
   shortcuts: {
     "uno-wh-full": "w-full h-full",

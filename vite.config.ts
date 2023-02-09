@@ -72,6 +72,8 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       /** SVG */
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), "src/icons/svg")],
+        // path.resolve(process.cwd()
+        // /Users/mzy/Documents/vue/v3-admin-vite
         symbolId: "icon-[dir]-[name]"
       }),
       /** UnoCSS */

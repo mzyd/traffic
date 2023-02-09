@@ -99,6 +99,8 @@ function createRequestFunction(service: AxiosInstance) {
       baseURL: import.meta.env.VITE_BASE_API,
       data: {}
     }
+    // const uuu = import.meta.env.VITE_BASE_API
+    // console.log('----------------', uuu)
     return service(Object.assign(configDefault, config))
   }
 }

@@ -1,7 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@amap/amap-jsapi-loader': ^1.0.1
+  '@amap/three-layer': ^0.0.4
   '@element-plus/icons-vue': ^2.0.10
+  '@three-ts/orbit-controls': ^1.4.7
   '@types/js-cookie': ^3.0.2
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.11.18
@@ -13,6 +16,7 @@ specifiers:
   '@vitejs/plugin-vue-jsx': ^3.0.0
   '@vue/eslint-config-prettier': ^7.0.0
   '@vue/eslint-config-typescript': ^11.0.2
+  '@vuemap/layer-3dtiles': ^0.0.3
   axios: ^1.2.2
   dayjs: ^1.11.7
   element-plus: ^2.2.28
@@ -32,6 +36,9 @@ specifiers:
   sass: ^1.57.1
   screenfull: ^6.0.2
   terser: ^5.16.1
+  three: ^0.148.0
+  three-obj-mtl-loader: ^1.0.3
+  three-orbitcontrols: ^2.110.3
   typescript: ^4.9.4
   unocss: ^0.48.3
   vite: ^4.0.4
@@ -46,7 +53,11 @@ specifiers:
   xe-utils: ^3.5.7
 
 dependencies:
+  '@amap/amap-jsapi-loader': 1.0.1
+  '@amap/three-layer': 0.0.4
   '@element-plus/icons-vue': 2.0.10_vue@3.2.45
+  '@three-ts/orbit-controls': 1.4.7
+  '@vuemap/layer-3dtiles': 0.0.3_@amap+three-layer@0.0.4
   axios: 1.2.2
   dayjs: 1.11.7
   element-plus: 2.2.28_vue@3.2.45
@@ -58,6 +69,9 @@ dependencies:
   path-to-regexp: 6.2.1
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
   screenfull: 6.0.2
+  three: 0.148.0
+  three-obj-mtl-loader: 1.0.3_three@0.148.0
+  three-orbitcontrols: 2.110.3_three@0.148.0
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
   vxe-table: 4.3.8_vue@3.2.45+xe-utils@3.5.7
@@ -93,6 +107,31 @@ devDependencies:
   vue-tsc: 1.0.24_typescript@4.9.4
 
 packages:
+
+  /3d-tiles-renderer/0.3.16_three@0.143.0:
+    resolution: {integrity: sha512-wSEeIBS2/V/mh57dYpzMGTK4uRubMbwgg2XxBbklaLk92VnOLLQLSN9tYyqeOlwbwbp5Fbz7B6uu+2qLTBHxAg==}
+    peerDependencies:
+      three: '>=0.123.0'
+    dependencies:
+      three: 0.143.0
+    dev: false
+
+  /@amap/amap-jsapi-loader/1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==}
+    dev: false
+
+  /@amap/amap-jsapi-types/0.0.8:
+    resolution: {integrity: sha512-q0FyZDIJcXjsMLGc3oS9rjfJsErOvt9rcp6AgzY4k14vo7bBhdq4eKwoSdVp/pYjR/rfaKBns5v10ycZOFwf/A==}
+    dev: false
+
+  /@amap/three-layer/0.0.4:
+    resolution: {integrity: sha512-2/0duAm0jnXHj69jRorszcUy4vQ8y9vL58lqmcCtrXXMgOBr/wZIoXSVvcAdT2jUevfmb12ViXaBMVhHKSLQFQ==}
+    engines: {node: '>= 16'}
+    dependencies:
+      '@amap/amap-jsapi-types': 0.0.8
+      '@types/three': 0.143.0
+      three: 0.143.0
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -770,6 +809,12 @@ packages:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
     dev: false
 
+  /@three-ts/orbit-controls/1.4.7:
+    resolution: {integrity: sha512-1OVZnc2VTHCoHberL50LBbltjnqVpOBhmuJwKPqzn6sThQwvVU1E13cpuJ2SWWOMoMLF+4hE3ICi4KHsZA/CJw==}
+    dependencies:
+      three: 0.126.1
+    dev: false
+
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -817,8 +862,18 @@ packages:
       '@types/node': 18.11.18
     dev: true
 
+  /@types/three/0.143.0:
+    resolution: {integrity: sha512-c5PonXOt8xk5q4ygmyjOX4Ec+FA7gwfdcMT/PveE9xrJs/0DDcf2lJkWrhEcmvx2ZefQCQBcogABnGqB0P4OsA==}
+    dependencies:
+      '@types/webxr': 0.5.1
+    dev: false
+
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
+
+  /@types/webxr/0.5.1:
+    resolution: {integrity: sha512-xlFXPfgJR5vIuDefhaHuUM9uUgvPaXB6GKdXy2gdEh8gBWQZ2ul24AJz3foUd8NNKlSTQuWYJpCb1/pL81m1KQ==}
     dev: false
 
   /@typescript-eslint/eslint-plugin/5.48.0_k73wpmdolxikpyqun3p36akaaq:
@@ -1307,6 +1362,18 @@ packages:
 
   /@vue/shared/3.2.45:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
+
+  /@vuemap/layer-3dtiles/0.0.3_@amap+three-layer@0.0.4:
+    resolution: {integrity: sha512-3ok0a7WNRBYnFdIev4JG32UTiOGac6YfsLUCyhTyAST0Y+4ZjcGZG5LqTqx4id8371i0BVy9qGwgy3D5ih64vQ==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      '@amap/three-layer': '>=0.0.2'
+    dependencies:
+      '@amap/three-layer': 0.0.4
+      3d-tiles-renderer: 0.3.16_three@0.143.0
+      lodash-es: 4.17.21
+      three: 0.143.0
+    dev: false
 
   /@vueuse/core/9.10.0_vue@3.2.45:
     resolution: {integrity: sha512-CxMewME07qeuzuT/AOIQGv0EhhDoojniqU6pC3F8m5VC76L47UT18DcX88kWlP3I7d3qMJ4u/PD8iSRsy3bmNA==}
@@ -4128,6 +4195,38 @@ packages:
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
+
+  /three-obj-mtl-loader/1.0.3_three@0.148.0:
+    resolution: {integrity: sha512-0z7BfyG6vYPY9RvxJvL4rq8PbNrF42Kn4zxeqTfeDzJN++2oKbtCQhxHs5vLULnDuCRTEyDFf5TYvO+1vnJ7KQ==}
+    peerDependencies:
+      three: '>= 0.91'
+    dependencies:
+      three: 0.148.0
+    dev: false
+
+  /three-orbitcontrols/2.110.3_three@0.148.0:
+    resolution: {integrity: sha512-BNNbksJwbN3/MmT0X/gjz5ZCchm7bjk26SUdtJYRxfEYjDfkb/0PeUTHE/KuyJ5vb/owK3mojyy3vcqDx99sRA==}
+    deprecated: |
+      three-js exposes real modules now via three/examples/jsm/...
+      for example to import Orbit, do
+      import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+    peerDependencies:
+      three: '>= 0.110.0'
+    dependencies:
+      three: 0.148.0
+    dev: false
+
+  /three/0.126.1:
+    resolution: {integrity: sha512-eOEXnZeE1FDV0XgL1u08auIP13jxdN9LQBAEmlErYzMxtIIfuGIAZbijOyookALUhqVzVOx0Tywj6n192VM+nQ==}
+    dev: false
+
+  /three/0.143.0:
+    resolution: {integrity: sha512-oKcAGYHhJ46TGEuHjodo2n6TY2R6lbvrkp+feKZxqsUL/WkH7GKKaeu6RHeyb2Xjfk2dPLRKLsOP0KM2VgT8Zg==}
+    dev: false
+
+  /three/0.148.0:
+    resolution: {integrity: sha512-8uzVV+qhTPi0bOFs/3te3RW6hb3urL8jYEl6irjCWo/l6sr8MPNMcClFev/MMYeIxr0gmDcoXTy/8LXh/LXkfw==}
+    dev: false
 
   /through/2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}

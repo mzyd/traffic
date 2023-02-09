@@ -190,6 +190,87 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
+    path: "/dada",
+    component: Layout,
+    redirect: "/dada/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/dada/index.vue"),
+        name: "dada",
+        meta: {
+          title: "dada",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
+  {
+    path: "/mapPage",
+    component: Layout,
+    redirect: "/mapPage/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/mapPage/index.vue"),
+        name: "mapPage",
+        meta: {
+          title: "mapPage",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
+  {
+    path: "/tModel",
+    component: Layout,
+    redirect: "/tModel/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/tModel/index.vue"),
+        name: "tModel",
+        meta: {
+          title: "tModel",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
+  {
+    path: "/traffic",
+    component: Layout,
+    redirect: "/traffic/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/traffic/index.vue"),
+        name: "traffic",
+        meta: {
+          title: "traffic",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
+  {
+    path: "/heaven",
+    component: Layout,
+    redirect: "/heaven/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/heaven/index.vue"),
+        name: "heaven",
+        meta: {
+          title: "heaven",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
+
+  {
     path: "/hooks",
     component: Layout,
     redirect: "/hooks/use-fetch-select",

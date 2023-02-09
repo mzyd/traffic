@@ -23,7 +23,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@amap/three-layer": "^0.0.4",
     "@element-plus/icons-vue": "^2.0.10",
+    "@three-ts/orbit-controls": "^1.4.7",
+    "@vuemap/layer-3dtiles": "^0.0.3",
     "axios": "^1.2.2",
     "dayjs": "^1.11.7",
     "element-plus": "^2.2.28",
@@ -35,6 +39,9 @@
     "path-to-regexp": "^6.2.1",
     "pinia": "^2.0.28",
     "screenfull": "^6.0.2",
+    "three": "^0.148.0",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbitcontrols": "^2.110.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vxe-table": "^4.3.8",
