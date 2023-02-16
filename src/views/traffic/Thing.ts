@@ -4,7 +4,7 @@ export class Wall {
   w: number
   h: number
   constructor(color: string, draw: Function) {
-    this.color = color
+    this.color = color || '#ccc'
     this.w = window.innerWidth
     this.h = window.innerHeight
     this.draw = draw
