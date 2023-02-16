@@ -7,7 +7,8 @@ module.exports = {
   /** 在对象中的括号之间是否用空格来间隔 */
   bracketSpacing: true,
   /** 箭头函数的参数无论有几个，都要括号包裹 */
-  arrowParens: 'avoid',
+  // arrowParens: 'always|avoid',
+  arrowParens: 'always',
   /** 换行符的使用 */
   endOfLine: 'auto',
   /** 是否采用单引号 */
