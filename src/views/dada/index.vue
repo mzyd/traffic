@@ -37,7 +37,7 @@ const listNorth = ref([
 
 onMounted(() => {
   initThree(dada)
-  initCurve()
+  // initCurve()
 })
 
 const initCurve = () => {
@@ -47,28 +47,40 @@ const initCurve = () => {
     { x: 0, y: 0, z: 10 }
   ]
 
-  //Create a closed wavey loop
-  const curve = new THREE.CatmullRomCurve3(initialPoints.map(i => new THREE.Vector3(i.x, i.y, i.z)))
-  const points = curve.getPoints(50)
-  const geometry = new THREE.BufferGeometry().setFromPoints(points)
-  const material = new THREE.LineBasicMaterial({ color: 0xf21010 })
-  // Create the final object to add to the scene
-  const curveObject = new THREE.Line(geometry, material)
-  console.log("ccccccc", curveObject)
-  scene.add(curveObject)
-
   const addCube = (pos) => {
-    console.log("....pos...", pos)
     const geometry = new THREE.BoxGeometry(3, 3, 3)
-    const material = new THREE.MeshBasicMaterial(0x00ff04)
-    const cube = new THREE.Mesh(geometry, material)
+    const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff04 })
+    const cube = new THREE.Mesh(geometry, cubeMaterial)
     cube.position.copy(pos)
     scene.add(cube)
     return cube
   }
-  const cubeList = initialPoints.map(pos => addCube(pos))
-  console.log("cuge list ", cubeList)
+  const cubeList = initialPoints.map((pos) => addCube(pos))
+  console.log('cuge list ', cubeList)
 
+  //Create a closed wavey loop
+  const curve = new THREE.CatmullRomCurve3(initialPoints.map((i) => new THREE.Vector3(i.x, i.y, i.z)))
+  const points = curve.getPoints(50) // 50等分获取曲线点数组
+  console.log('%c points..', 'background: yellow; color: purple', points)
+
+  const geometry = new THREE.BufferGeometry().setFromPoints(points)
+  const material = new THREE.LineBasicMaterial({ color: 0xf21010 })
+  // Create the final object to add to the scene
+  const curveObject = new THREE.Line(geometry, material)
+  console.log('curveObject----', curveObject)
+  scene.add(curveObject)
+
+  const box = new THREE.BoxGeometry(5, 5, 5)
+  const m = new THREE.MeshLambertMaterial({ color: 0x0000ff })
+  const mesh = new THREE.Mesh(box, m)
+  scene.add(mesh)
+  mesh.position.set(-10, -50, -50)
+
+  // 声明一个数组用于存储时间序列
+  const arr = []
+  for (let i = 0; i < 101; i++) {
+    arr.push(i)
+  }
 }
 
 const initThree = async (instance: HTMLElement | null) => {
@@ -85,12 +97,6 @@ const initThree = async (instance: HTMLElement | null) => {
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.minPolarAngle = 0
   controls.maxPolarAngle = Math.PI
-
-  // controls.rotateLeft(Math.PI)
-
-  // this.enableZoom = true // Set to false to disable zooming
-  // this.zoomSpeed = 1.0
-
 
   // const road = await useLoaderByGLB(scene, '/lukou/scene.glb', (glb) => {
   //   glb.scene.position.set(0, 0, 0)

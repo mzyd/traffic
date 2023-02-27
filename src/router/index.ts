@@ -269,6 +269,22 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   },
+  {
+    path: "/curve",
+    component: Layout,
+    redirect: "/curve/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/curve/index.vue"),
+        name: "curve",
+        meta: {
+          title: "curve",
+          svgIcon: "unocss"
+        }
+      }
+    ]
+  },
 
   {
     path: "/hooks",
